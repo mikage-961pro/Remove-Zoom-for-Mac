@@ -15,6 +15,14 @@ rm -r ~/Library/Application\ Support/zoom.us/
 rm -r ~/Library/Preferences/us.zoom.xos.plist
 rm -r ~/Library/Preferences/ZoomChat.plist
 
+echo "mac OS System Preferences Checking..."
+sudo update_dyld_shared_cache -force
+sudo kextcache -system-caches
+sudo kextcache -system-prelinked-kernel
+sudo kextcache -system-prelinked-kernel
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+sudo softwareupdate --install --all
+softwareupdate -l --include-config-data
 
 
 echo "Complete: Zoom uninstalled"
