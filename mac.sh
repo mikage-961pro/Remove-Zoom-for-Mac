@@ -8,7 +8,13 @@ echo "Zoom download files Checking..."
 cd ../Downloads/
 rm -r Zoom.pkg
 
+echo "Zoom task killing..."
+
+sudo osascript -e 'quit app "zoom.us.app"'
+sudoosascript -e 'quit app "zoom.us"'
+
 echo "Zoom uninstalling..."
+
 rm -r /Applications/zoom.us.app
 rm -r ~/Library/Internet\ Plug-Ins/ZoomUsPlugIn.plugin
 rm -r ~/Library/Application\ Support/zoom.us/
@@ -22,7 +28,7 @@ sudo kextcache -system-prelinked-kernel
 sudo kextcache -system-prelinked-kernel
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 sudo softwareupdate --install --all
-softwareupdate -l --include-config-data
+sudo softwareupdate -l --include-config-data
 
 
 echo "Complete: Zoom uninstalled"
